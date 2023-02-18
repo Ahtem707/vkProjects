@@ -9,18 +9,20 @@ import UIKit
 
 protocol ProjectListViewControllerDelegate: AnyObject {
     /// Обновление данных
-    func updateDataSource()
+    func updateTable()
     
     /// Переход на указанный viewController
     /// - Parameter viewController: viewController на который будем переходить
     func pushViewController(_ viewController: UIViewController)
     
     /// Отобразить ошибку
-    /// - Parameter message: Сообщение ошибки
-    func showError(message: String)
+    func showError()
 }
 
 protocol ProjectListViewModelProtocol: AnyObject {
+    /// Получение списка проектов
+    func fetchProjects()
+    
     /// Получить название экрана
     /// - Returns: Возвращает строку
     func getViewTitle() -> String

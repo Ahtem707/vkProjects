@@ -57,8 +57,9 @@ final class ProjectDetailViewController: BaseViewController {
 // MARK: - Setup functions
 extension ProjectDetailViewController {
     private func configure() {
-        viewModel = ProjectDetailViewModel()
-        (viewModel as? ProjectDetailViewModel)?.delegate = self
+        let viewModel = ProjectDetailViewModel()
+        viewModel.delegate = self
+        self.viewModel = viewModel
     }
     
     private func setupSubviews() {
@@ -118,9 +119,12 @@ extension ProjectDetailViewController {
     }
     
     @objc private func didSelectLink(_ selector: UILabel) {
-        guard let projectData = projectData else { return }
-        let url = URL(string: projectData.serviceUrl)
-        viewModel.didSelectLink(url: url)
+        if let projectData = projectData,
+           let url = URL(string: projectData.serviceUrl) {
+            viewModel.didSelectLink(url: url)
+        } else {
+            showShortMessage(message: "Ошибка открытия сссылки", status: .error)
+        }
     }
 }
 

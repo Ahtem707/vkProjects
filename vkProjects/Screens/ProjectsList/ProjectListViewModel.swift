@@ -12,6 +12,9 @@ final class ProjectListViewModel: BaseViewModel {
     // MARK: - Public variables
     
     weak var delegate: ProjectListViewControllerDelegate?
+    
+    // MARK: - Private variables
+    
     private var dataSource: [ProjectCellModel] = []
     private var isDataSourceUpdated: Bool = false
     
@@ -23,34 +26,42 @@ final class ProjectListViewModel: BaseViewModel {
 // MARK: - Private functions
 extension ProjectListViewModel {
     
-    func fetchProjects() {
+    /// Выполнение запроса на получение проектов
+    private func fetchProjectsRequest() {
+        isDataSourceUpdated = false
         API.Project.getProjects.request(ProjectsResponse.self) { [weak self] result in
             switch result {
             case .success(let data):
                 self?.isDataSourceUpdated = true
                 if let items = data.items, !items.isEmpty {
                     AppStorage.share.projects = items
-                    self?.makeDataSource()
+                    self?.updateDataSource()
                 } else {
                     AppLogger.log(.storage, AppError.contentError)
-                    self?.delegate?.showError(message: AppError.contentError.localizedDescription)
+                    self?.delegate?.showError()
                 }
             case .failure(let error):
                 self?.isDataSourceUpdated = true
                 AppLogger.log(.storage, error.localizedDescription)
-                self?.delegate?.showError(message: error.localizedDescription)
+                self?.delegate?.showError()
             }
         }
     }
     
-    private func makeDataSource() {
+    /// Обновление данных
+    private func updateDataSource() {
+        guard isDataSourceUpdated else { return }
         dataSource = AppStorage.share.projects.map { ProjectCellModel(iconUrl: $0.iconUrl, title: $0.name) }
-        delegate?.updateDataSource()
+        delegate?.updateTable()
     }
 }
 
 // MARK: - ProjectListViewModelProtocol
 extension ProjectListViewModel: ProjectListViewModelProtocol {
+    func fetchProjects() {
+        fetchProjectsRequest()
+    }
+    
     func getViewTitle() -> String {
         return "Проекты VK"
     }

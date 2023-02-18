@@ -24,16 +24,12 @@ final class ProjectListViewController: BaseViewController {
         setupLayouts()
         setupContent()
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        tableView.reloadData()
-//    }
 }
 
 // MARK: - Setup functions
 extension ProjectListViewController {
     private func configure() {
+        loaderView.start()
         let viewModel = ProjectListViewModel()
         viewModel.delegate = self
         viewModel.fetchProjects()
@@ -61,16 +57,22 @@ extension ProjectListViewController {
 
 // MARK: - ProjectListViewControllerDelegate
 extension ProjectListViewController: ProjectListViewControllerDelegate {
-    func updateDataSource() {
-        tableView.reloadData()
+    func updateTable() {
+        loaderView.stop()
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
     
     func pushViewController(_ viewController: UIViewController) {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    func showError(message: String) {
-        showShortMessage(message: message, status: .error)
+    func showError() {
+        AppAlertFactory(self).showNetworkError { [weak self] in
+            self?.loaderView.start()
+            self?.viewModel.fetchProjects()
+        }
     }
 }
 

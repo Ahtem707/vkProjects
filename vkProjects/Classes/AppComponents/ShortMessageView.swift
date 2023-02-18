@@ -11,9 +11,9 @@ final class ShortMessageViewFactory {
     private let shortMessage = ShortMessageView()
     private let animateDuration: Double = 1
     private let showDuration: Int = 3
-    private let offset: CGFloat = 100
+    private var offset: CGFloat = 100
     
-    weak var view: UIView?
+    weak var viewController: UIViewController?
     var message: String = "" {
         didSet {
             shortMessage.messageLabel.text = message
@@ -26,7 +26,7 @@ final class ShortMessageViewFactory {
     }
     
     func initialize() {
-        guard let view = view else { return }
+        guard let view = viewController?.view else { return }
         let viewWidth = view.bounds.size.width
         let horizontalPadding = CGFloat(10)
         let width = viewWidth - horizontalPadding * 2
@@ -36,6 +36,10 @@ final class ShortMessageViewFactory {
         shortMessage.layer.zPosition = 10
         shortMessage.layer.cornerRadius = 5
         view.addSubview(shortMessage)
+        
+        if let navBarHeight = viewController?.navigationController?.navigationBar.frame.height {
+            offset = UIApplication.shared.statusBarFrame.height + navBarHeight + 10
+        }
     }
     
     /// Короткий показ уведомления
@@ -124,7 +128,7 @@ extension ShortMessageView {
     }
     
     private func setupAppearance() {
-        messageLabel.font = AppFont.font(style: .regular, size: 24)
+        messageLabel.font = AppFont.font(style: .regular, size: 18)
         messageLabel.textColor = AppColor.Text.white
     }
 }

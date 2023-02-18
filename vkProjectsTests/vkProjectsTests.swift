@@ -10,22 +10,8 @@ import XCTest
 
 final class vkProjectsTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        
-    }
-
-    override func tearDownWithError() throws {
-        
-    }
-
     func testExample() throws {
-        
+        let projectListTests = ProjectsListTests()
+        projectListTests.checkDependencies()
     }
-
-    func testPerformanceExample() throws {
-        self.measure {
-            
-        }
-    }
-
 }

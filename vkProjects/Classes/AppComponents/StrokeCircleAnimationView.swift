@@ -26,7 +26,7 @@ final class StrokeCircleAnimationView: UIView {
     func start() {
         guard !animated else { return }
         animated = true
-        layer.sublayers = nil
+        clearSublayer()
         let animator = StrokeCircleAnimator()
         animator.setUpAnimation(in: layer, size: frame.size, color: color)
     }
@@ -35,12 +35,20 @@ final class StrokeCircleAnimationView: UIView {
     func stop() {
         guard animated else { return }
         animated = false
-        layer.sublayers = nil
+        clearSublayer()
     }
     
+    /// Конфигурируем параметра отображения
     private func configure() {
         layer.speed = 0.7
         isUserInteractionEnabled = false
+    }
+    
+    /// Очистка дочернего слоя
+    private func clearSublayer() {
+        DispatchQueue.main.async {
+            self.layer.sublayers?.removeAll()
+        }
     }
 }
 

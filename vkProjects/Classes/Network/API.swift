@@ -24,8 +24,9 @@ public enum HTTPMethod: String {
 final class API {
     
     private static let isMock: Bool = false
-    private static let requestRepeatTime: CGFloat = 2
-    private static let requestRepeatCount: Int = 5
+    private static var session: URLSession = {
+        return makeSession()
+    }()
     
     static func request<T: Codable>(_ type: T.Type, target: Target, completion: @escaping RequestClosure<T>) {
         if isMock {
@@ -40,6 +41,9 @@ final class API {
         }
     }
     
+    /// Генератор запроса
+    /// - Parameter target: входящие  параметры запроса
+    /// - Returns: Возвращаем  объект запроса
     static func makeRequest(_ target: Target) -> URLRequest? {
         var urlString = BuildConfig.baseUrl
         if target.path.contains("http") {
@@ -66,6 +70,10 @@ final class API {
         return request
     }
     
+    /// Возвращает  данные  из локального файла
+    /// - Parameters:
+    ///   - target: входящие  параметры запроса
+    ///   - completion: Замыкание с результатом
     static func sampleData<T: Codable>(target: Target, completion: @escaping RequestClosure<T>) {
         API.logger(target.path, target.sampleData, isMock: true)
         let decoder = JSONDecoder()
@@ -78,8 +86,12 @@ final class API {
         }
     }
     
+    /// Выполняет сетевой запрос
+    /// - Parameters:
+    ///   - request: входящие  параметры запроса
+    ///   - completion: Замыкание с результатом
     static func requestExecute<T: Codable>(request: URLRequest, completion: @escaping RequestClosure<T>) {
-        URLSession.shared.dataTask(with: request) { data, response, error in
+        session.dataTask(with: request) { data, response, error in
             API.logger(response?.url?.absoluteString, data)
             if let errorRequest = error {
                 completion(.failure(errorRequest as NSError))
@@ -100,6 +112,11 @@ final class API {
         }.resume()
     }
     
+    /// Генерирует логи запросов
+    /// - Parameters:
+    ///   - path: путь запроса
+    ///   - data: данные  запроса
+    ///   - isMock: включет ли режим  мокера для запроса
     static func logger(_ path: String?, _ data: Data?, isMock: Bool = false) {
         guard let path = path,
               let data = data
@@ -115,5 +132,17 @@ final class API {
         } else {
             AppLogger.log(.api, logString)
         }
+    }
+}
+
+// MARK: - Private functions
+extension API {
+    private static func makeSession() -> URLSession {
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 60.0
+        configuration.timeoutIntervalForResource = 60.0
+        configuration.urlCache = nil
+        configuration.urlCredentialStorage = nil
+        return URLSession(configuration: configuration)
     }
 }

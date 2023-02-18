@@ -12,7 +12,9 @@ final class AppLogger {
     
     private static var enableLogType: [LogType] = [
         .api, .api_mock,
-        .storage
+        .storage,
+        .logic,
+        .fetch
     ]
     
     static func log(_ type: LogType, _ message: Any) {

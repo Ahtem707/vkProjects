@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1841B5F7299FA70400C9DA5F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1841B5BF299FA70400C9DA5F /* UIView.swift */; };
-		1841B5F8299FA70400C9DA5F /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1841B5C0299FA70400C9DA5F /* Array.swift */; };
 		1841B5F9299FA70400C9DA5F /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1841B5C1299FA70400C9DA5F /* Data.swift */; };
 		1841B5FA299FA70400C9DA5F /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1841B5C2299FA70400C9DA5F /* UIColor.swift */; };
 		1841B5FB299FA70400C9DA5F /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1841B5C3299FA70400C9DA5F /* UITableView.swift */; };
@@ -46,10 +44,12 @@
 		1845BECA299FE731007B0D2A /* UnderlinedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845BEC9299FE731007B0D2A /* UnderlinedLabel.swift */; };
 		1845BECD299FFEF6007B0D2A /* WebViewLoaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845BECC299FFEF6007B0D2A /* WebViewLoaderViewController.swift */; };
 		1845BECF29A00832007B0D2A /* StrokeCircleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845BECE29A00832007B0D2A /* StrokeCircleAnimationView.swift */; };
-		1845BED129A014BE007B0D2A /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845BED029A014BE007B0D2A /* TableViewCell.swift */; };
 		1845BED329A01996007B0D2A /* ShortMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845BED229A01996007B0D2A /* ShortMessageView.swift */; };
+		1871035C29A0A76A00754E8A /* AppAlertFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871035B29A0A76A00754E8A /* AppAlertFactory.swift */; };
+		1871036029A0C40300754E8A /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 1871035F29A0C40300754E8A /* SDWebImage */; };
+		1871036329A0C5A200754E8A /* ProjectsListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1871036229A0C5A200754E8A /* ProjectsListTests.swift */; };
 		18FD160A299FB18F00EFA202 /* ProjectListProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FD1609299FB18F00EFA202 /* ProjectListProtocols.swift */; };
-		18FD160E299FB7F100EFA202 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 18FD160D299FB7F100EFA202 /* SDWebImage */; };
+		18FD160E299FB7F100EFA202 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 18FD160D299FB7F100EFA202 /* SDWebImage */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,8 +73,6 @@
 		182293D8299F9484008DECEE /* vkProjects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = vkProjects.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		182293EE299F9485008DECEE /* vkProjectsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vkProjectsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		182293F8299F9485008DECEE /* vkProjectsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = vkProjectsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1841B5BF299FA70400C9DA5F /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		1841B5C0299FA70400C9DA5F /* Array.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		1841B5C1299FA70400C9DA5F /* Data.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		1841B5C2299FA70400C9DA5F /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		1841B5C3299FA70400C9DA5F /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
@@ -113,8 +111,9 @@
 		1845BEC9299FE731007B0D2A /* UnderlinedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedLabel.swift; sourceTree = "<group>"; };
 		1845BECC299FFEF6007B0D2A /* WebViewLoaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewLoaderViewController.swift; sourceTree = "<group>"; };
 		1845BECE29A00832007B0D2A /* StrokeCircleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrokeCircleAnimationView.swift; sourceTree = "<group>"; };
-		1845BED029A014BE007B0D2A /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		1845BED229A01996007B0D2A /* ShortMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortMessageView.swift; sourceTree = "<group>"; };
+		1871035B29A0A76A00754E8A /* AppAlertFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAlertFactory.swift; sourceTree = "<group>"; };
+		1871036229A0C5A200754E8A /* ProjectsListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsListTests.swift; sourceTree = "<group>"; };
 		18FD1609299FB18F00EFA202 /* ProjectListProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectListProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -131,6 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1871036029A0C40300754E8A /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +151,7 @@
 				1841B5F4299FA70400C9DA5F /* vkProjectsTests */,
 				1841B5F1299FA70400C9DA5F /* vkProjectsUITests */,
 				182293D9299F9484008DECEE /* Products */,
+				1871035E29A0C40300754E8A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,6 +182,7 @@
 		1841B5BD299FA70400C9DA5F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1871035D29A0A98F00754E8A /* AlertFactory */,
 				1845BEC8299FE716007B0D2A /* AppComponents */,
 				1841B5BE299FA70400C9DA5F /* Extension */,
 				1841B5C6299FA70400C9DA5F /* Logger */,
@@ -195,8 +197,6 @@
 		1841B5BE299FA70400C9DA5F /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				1841B5BF299FA70400C9DA5F /* UIView.swift */,
-				1841B5C0299FA70400C9DA5F /* Array.swift */,
 				1841B5C1299FA70400C9DA5F /* Data.swift */,
 				1841B5C2299FA70400C9DA5F /* UIColor.swift */,
 				1841B5C3299FA70400C9DA5F /* UITableView.swift */,
@@ -337,7 +337,6 @@
 			isa = PBXGroup;
 			children = (
 				18FD160B299FB6F700EFA202 /* ProjectCell */,
-				1845BED029A014BE007B0D2A /* TableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -354,6 +353,7 @@
 		1841B5F4299FA70400C9DA5F /* vkProjectsTests */ = {
 			isa = PBXGroup;
 			children = (
+				1871036129A0C58800754E8A /* ProjectsList */,
 				1841B5F5299FA70400C9DA5F /* vkProjectsTests.swift */,
 			);
 			path = vkProjectsTests;
@@ -385,6 +385,29 @@
 				1845BECC299FFEF6007B0D2A /* WebViewLoaderViewController.swift */,
 			);
 			path = WebViewLoader;
+			sourceTree = "<group>";
+		};
+		1871035D29A0A98F00754E8A /* AlertFactory */ = {
+			isa = PBXGroup;
+			children = (
+				1871035B29A0A76A00754E8A /* AppAlertFactory.swift */,
+			);
+			path = AlertFactory;
+			sourceTree = "<group>";
+		};
+		1871035E29A0C40300754E8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1871036129A0C58800754E8A /* ProjectsList */ = {
+			isa = PBXGroup;
+			children = (
+				1871036229A0C5A200754E8A /* ProjectsListTests.swift */,
+			);
+			path = ProjectsList;
 			sourceTree = "<group>";
 		};
 		18FD160B299FB6F700EFA202 /* ProjectCell */ = {
@@ -433,6 +456,9 @@
 				182293F0299F9485008DECEE /* PBXTargetDependency */,
 			);
 			name = vkProjectsTests;
+			packageProductDependencies = (
+				1871035F29A0C40300754E8A /* SDWebImage */,
+			);
 			productName = vkServicesTests;
 			productReference = 182293EE299F9485008DECEE /* vkProjectsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -538,12 +564,10 @@
 				1841B607299FA70400C9DA5F /* BaseViewController.swift in Sources */,
 				1841B614299FA70400C9DA5F /* ProjectListViewModel.swift in Sources */,
 				1841B5FA299FA70400C9DA5F /* UIColor.swift in Sources */,
-				1845BED129A014BE007B0D2A /* TableViewCell.swift in Sources */,
 				1841B602299FA70400C9DA5F /* ProjectsResponse.swift in Sources */,
 				1841B5FF299FA70400C9DA5F /* TargetProtocol.swift in Sources */,
 				1845BECF29A00832007B0D2A /* StrokeCircleAnimationView.swift in Sources */,
 				1841B5FB299FA70400C9DA5F /* UITableView.swift in Sources */,
-				1841B5F7299FA70400C9DA5F /* UIView.swift in Sources */,
 				1841B605299FA70400C9DA5F /* AppError.swift in Sources */,
 				18FD160A299FB18F00EFA202 /* ProjectListProtocols.swift in Sources */,
 				1845BED329A01996007B0D2A /* ShortMessageView.swift in Sources */,
@@ -558,6 +582,7 @@
 				1845BEC5299FE14B007B0D2A /* ProjectDetailViewModel.swift in Sources */,
 				1841B609299FA70400C9DA5F /* AppImage.swift in Sources */,
 				1845BECD299FFEF6007B0D2A /* WebViewLoaderViewController.swift in Sources */,
+				1871035C29A0A76A00754E8A /* AppAlertFactory.swift in Sources */,
 				1841B615299FA70400C9DA5F /* ProjectListViewController.swift in Sources */,
 				1841B5FD299FA70400C9DA5F /* UIEdgeInsets.swift in Sources */,
 				1841B608299FA70400C9DA5F /* BaseViewModel.swift in Sources */,
@@ -567,7 +592,6 @@
 				1841B600299FA70400C9DA5F /* API.swift in Sources */,
 				1845BEC7299FE154007B0D2A /* ProjectDetailProtocols.swift in Sources */,
 				1841B60C299FA70400C9DA5F /* AppFont.swift in Sources */,
-				1841B5F8299FA70400C9DA5F /* Array.swift in Sources */,
 				1841B5F9299FA70400C9DA5F /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -577,6 +601,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1845BEBD299FBBF5007B0D2A /* vkProjectsTests.swift in Sources */,
+				1871036329A0C5A200754E8A /* ProjectsListTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -923,6 +948,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1871035F29A0C40300754E8A /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 18FD160C299FB7F100EFA202 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
 		18FD160D299FB7F100EFA202 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 18FD160C299FB7F100EFA202 /* XCRemoteSwiftPackageReference "SDWebImage" */;

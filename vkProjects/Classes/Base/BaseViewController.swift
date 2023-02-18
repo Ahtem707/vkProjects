@@ -16,9 +16,29 @@ protocol ViewControllerProtocol: AnyObject {
 
 class ViewControllerImplement: UIViewController {
     
+    let loaderView = StrokeCircleAnimationView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        configure()
+        setupLoader()
+    }
+    
+    func showShortMessage(message: String, status: ShortMessageStatus) {
+        let messageView = ShortMessageViewFactory()
+        messageView.viewController = self
+        messageView.message = message
+        messageView.status = status
+        messageView.initialize()
+        messageView.show()
+    }
+}
+
+// MAKR: - Private functions
+extension ViewControllerImplement {
+    /// Конфигурируем BaseViewController
+    private func configure() {
         navigationController?.view.backgroundColor = .clear
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.isTranslucent = true
@@ -31,12 +51,12 @@ class ViewControllerImplement: UIViewController {
         view.backgroundColor = .white
     }
     
-    func showShortMessage(message: String, status: ShortMessageStatus) {
-        let messageView = ShortMessageViewFactory()
-        messageView.view = view
-        messageView.message = message
-        messageView.status = status
-        messageView.initialize()
-        messageView.show()
+    /// Инициализируем лоадер
+    private func setupLoader() {
+        loaderView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(loaderView)
+        loaderView.pin(size: CGSize(width: 100, height: 100))
+        loaderView.pinCenterToSuperview(of: .vertical)
+        loaderView.pinCenterToSuperview(of: .horizontal)
     }
 }
